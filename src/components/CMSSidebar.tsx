@@ -15,6 +15,7 @@ import {
   BookOpen,
   Menu
 } from 'lucide-react';
+import { useTheme } from '@/context/ThemeContext';
 
 const sidebarItems = [
   { 
@@ -52,6 +53,7 @@ const sidebarItems = [
 const CMSSidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { theme } = useTheme();
 
   const toggleCollapse = () => {
     setCollapsed(!collapsed);
@@ -99,7 +101,13 @@ const CMSSidebar = () => {
         {/* Logo */}
         <div className="p-4 flex items-center justify-between">
           {!collapsed && (
-            <div className="text-xl font-bold">Admin CMS</div>
+            <div className="text-xl font-bold">
+              {theme.logoUrl ? (
+                <img src={theme.logoUrl} alt={theme.siteName} className="h-8" />
+              ) : (
+                theme.siteName
+              )}
+            </div>
           )}
           <Button 
             variant="ghost" 

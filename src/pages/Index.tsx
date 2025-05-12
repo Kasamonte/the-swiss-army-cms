@@ -1,16 +1,13 @@
 
 import React from 'react';
-import { Outlet } from 'react-router-dom';
-import CMSSidebar from '@/components/CMSSidebar';
 import Dashboard from '@/components/Dashboard';
+import PageTitle from '@/components/ui/PageTitle';
 
 const Index = () => {
   return (
-    <div className="cms-container">
-      <CMSSidebar />
-      <main className="cms-content">
-        <Dashboard />
-      </main>
+    <div className="cms-content">
+      <PageTitle title="Dashboard" />
+      <Dashboard />
     </div>
   );
 };
